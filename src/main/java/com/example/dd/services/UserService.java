@@ -80,9 +80,9 @@ public class UserService {
             throw ex;
         }
 
-//        if (userObject.isEmpty()) {
-//            return false;
-//        }
+        if (userObject == null) {
+            return false;
+        }
         return true;
     }
 
