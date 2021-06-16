@@ -9,7 +9,6 @@ import java.util.List;
 
 @RestController
 @CrossOrigin("*")
-@RequestMapping("/")
 public class RestaurantController {
 
     private RestaurantService restaurantService;
@@ -18,12 +17,12 @@ public class RestaurantController {
         this.restaurantService = restaurantService;
     }
 
-    @RequestMapping(value = "newRestaurant", method = RequestMethod.POST)
+    @RequestMapping(value = "/newRestaurant", method = RequestMethod.POST)
     public RestaurantModel RegisterNewRestaurant(@RequestBody RestaurantModel restaurantModel){
         return restaurantService.RegisterNewRestaurant(restaurantModel);
     }
 
-    @RequestMapping(value = "getAllRestaurants", method = RequestMethod.GET)
+    @RequestMapping(value = "/getAllRestaurants", method = RequestMethod.GET)
     public List<Restaurant> GetAllRestaurants(){
         return restaurantService.GetAllRestaurants();
     }
