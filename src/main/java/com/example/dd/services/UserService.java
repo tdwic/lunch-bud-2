@@ -80,12 +80,11 @@ public class UserService {
             System.out.println("Valid User Exception " + ex);
             throw ex;
         }
-
-        boolean sd = userObject.isEmpty();
-//        System.out.println(Optional.ofNullable(userObject).isPresent());
-//        if (sd) {
-//            return false;
-//        }
+        var sd = userObject.stream().findFirst().orElse(null);
+        System.out.println(sd);
+        if (sd == null) {
+            return false;
+        }
         return true;
     }
 
