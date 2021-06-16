@@ -81,10 +81,11 @@ public class UserService {
             throw ex;
         }
 
-        boolean sd = ((Optional<User>) userObject).isEmpty();
-        if (sd) {
-            return false;
-        }
+        boolean sd = userObject.isEmpty();
+//        System.out.println(Optional.ofNullable(userObject).isPresent());
+//        if (sd) {
+//            return false;
+//        }
         return true;
     }
 
