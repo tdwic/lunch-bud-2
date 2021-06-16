@@ -1,5 +1,6 @@
 package com.example.dd.services;
 
+import com.example.dd.entity.Restaurant;
 import com.example.dd.entity.User;
 import com.example.dd.models.UserModel;
 import com.example.dd.models.UserValidationModel;
@@ -7,6 +8,8 @@ import com.example.dd.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 
@@ -86,6 +89,20 @@ public class UserService {
             return false;
         }
         return true;
+    }
+
+    public List<User> GetAllUsers() {
+
+        List<User> userList =new ArrayList<>();
+
+        try {
+            userList = userRepository.findAll();
+        } catch (Exception ex) {
+            System.out.println("User Exception " + ex);
+            throw ex;
+        }
+
+        return  userList;
     }
 
 }
