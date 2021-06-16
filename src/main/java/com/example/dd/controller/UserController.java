@@ -10,7 +10,6 @@ import java.util.Optional;
 
 @RestController
 @CrossOrigin("*")
-@RequestMapping("/")
 public class UserController {
 
     private UserService userService;
@@ -19,22 +18,22 @@ public class UserController {
         this.userService = userService;
     }
 
-    @RequestMapping(value = "newUser", method = RequestMethod.POST)
+    @RequestMapping(value = "/newUser", method = RequestMethod.POST)
     public UserModel RegisterNewUser(@RequestBody UserModel user){
         return userService.RegisterNeUser(user);
     }
 
-    @RequestMapping(value = "isValidUser", method = RequestMethod.POST)
+    @RequestMapping(value = "/isValidUser", method = RequestMethod.POST)
     public boolean RegisterNewUser(@RequestBody UserValidationModel validationModel){
         return userService.IsValidUser(validationModel);
     }
 
-    @RequestMapping(value = "userByUserId/{userID}", method = RequestMethod.GET)
+    @RequestMapping(value = "/userByUserId/{userID}", method = RequestMethod.GET)
     public Optional<User> GetUserDetailsByUserID(@PathVariable  String userID){
         return userService.GetUserDetailsByUserID(userID);
     }
 
-    @RequestMapping(value = "userByUserName/{userName}", method = RequestMethod.GET)
+    @RequestMapping(value = "/userByUserName/{userName}", method = RequestMethod.GET)
     public Optional<User> GetUserDetailsByUserName(@PathVariable  String userName){
         return userService.GetUserDetailsByUserName(userName);
     }
