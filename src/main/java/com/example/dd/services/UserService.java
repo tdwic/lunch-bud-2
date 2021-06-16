@@ -7,6 +7,7 @@ import com.example.dd.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Objects;
 import java.util.Optional;
 
 @Service
@@ -80,7 +81,8 @@ public class UserService {
             throw ex;
         }
 
-        if (userObject.isEmpty()) {
+        boolean sd = ((Optional<User>) userObject).isEmpty();
+        if (sd) {
             return false;
         }
         return true;
