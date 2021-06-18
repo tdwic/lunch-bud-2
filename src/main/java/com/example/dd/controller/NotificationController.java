@@ -20,6 +20,7 @@ public class NotificationController {
 
     @PostMapping
     public void sendSms(@RequestBody SmsRequest smsRequest) {
+
         service.sendSms(smsRequest);
     }
 }
