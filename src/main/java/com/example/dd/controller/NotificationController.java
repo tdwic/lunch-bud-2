@@ -1,6 +1,6 @@
 package com.example.dd.controller;
 
-import com.example.dd.services.Service;
+import com.example.dd.services.SmsNotificationService;
 import com.example.dd.services.twilioService.SmsRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -11,16 +11,15 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("api/sms")
 public class NotificationController {
-    private final Service service;
+    private final SmsNotificationService smsNotificationService;
 
     @Autowired
-    public NotificationController(Service service) {
-        this.service = service;
+    public NotificationController(SmsNotificationService smsNotificationService) {
+        this.smsNotificationService = smsNotificationService;
     }
 
     @PostMapping
     public void sendSms(@RequestBody SmsRequest smsRequest) {
-
-        service.sendSms(smsRequest);
+        smsNotificationService.sendSms(smsRequest);
     }
 }
