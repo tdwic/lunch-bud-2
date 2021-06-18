@@ -17,7 +17,7 @@ public class SmsNotificationService {
         this.smsSender = smsSender;
     }
 
-    public void sendSms(SmsRequest smsRequest) {
-        smsSender.sendSms(smsRequest);
+    public String sendSms(SmsRequest smsRequest) {
+        return smsSender.sendSms(smsRequest);
     }
 }

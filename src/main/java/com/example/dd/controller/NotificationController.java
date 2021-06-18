@@ -19,7 +19,7 @@ public class NotificationController {
     }
 
     @PostMapping
-    public void sendSms(@RequestBody SmsRequest smsRequest) {
-        smsNotificationService.sendSms(smsRequest);
+    public String sendSms(@RequestBody SmsRequest smsRequest) {
+        return smsNotificationService.sendSms(smsRequest);
     }
 }
