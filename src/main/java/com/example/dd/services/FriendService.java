@@ -54,4 +54,14 @@ public class FriendService {
         return  friendReturnModel;
     };
 
+    public boolean RemoveFriendByID(String ID){
+        try{
+            friendRepository.deleteById(ID);
+            return true;
+        }catch (Exception ex){
+            System.out.println("Remove Friend Exception " + ex);
+            return false;
+        }
+    }
+
 }

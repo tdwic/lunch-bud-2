@@ -28,4 +28,9 @@ public class FriendController {
     public FriendModel NewFriend(@RequestBody FriendModel friendModel){
         return friendService.RegisterNewFriend(friendModel);
     }
+
+    @RequestMapping(value = "/removeFriendByID/{friendID}", method = RequestMethod.DELETE)
+    public boolean RemoveFriendByID(@PathVariable  String friendID){
+        return friendService.RemoveFriendByID(friendID);
+    }
 }
